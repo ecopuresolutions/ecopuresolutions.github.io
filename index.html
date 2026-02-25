@@ -22,38 +22,15 @@
 
       --border:rgba(255,255,255,.12);
       --shadow: 0 10px 30px rgba(0,0,0,.35);
-      /* --- Fix dropdown visibility on dark theme --- */
-select{
-  color: var(--text);
-  background: rgba(255,255,255,.03);
-}
-
-/* The opened dropdown list items */
-select option{
-  background: #0f172a;   /* dark background */
-  color: #eef2ff;        /* bright text */
-}
-
-/* Highlighted/selected option */
-select option:checked,
-select option:hover{
-  background: #1f2937;
-  color: #eef2ff;
-}
-
-/* Focus ring so it feels premium */
-input:focus, select:focus, textarea:focus{
-  border-color: rgba(57,217,138,.55);
-  box-shadow: 0 0 0 3px rgba(57,217,138,.18);
-}
     }
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background:
-        radial-gradient(900px 600px at 12% 10%, rgba(57,217,138,.18), transparent 55%),
-        radial-gradient(900px 700px at 88% 14%, rgba(255,159,67,.14), transparent 60%),
+        radial-gradient(950px 650px at 12% 10%, rgba(57,217,138,.26), transparent 58%),
+        radial-gradient(950px 750px at 88% 14%, rgba(255,159,67,.22), transparent 62%),
+        radial-gradient(700px 500px at 50% 85%, rgba(57,217,138,.10), transparent 60%),
         var(--bg);
       color:var(--text);
     }
@@ -211,6 +188,25 @@ input:focus, select:focus, textarea:focus{
     .formRow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     @media (max-width: 550px){
       .formRow{grid-template-columns:1fr}
+    }
+
+    /* --- Fix dropdown visibility on dark theme --- */
+    select{
+      color: var(--text);
+      background: rgba(255,255,255,.03);
+    }
+    select option{
+      background: #0f172a;
+      color: #eef2ff;
+    }
+    select option:checked,
+    select option:hover{
+      background: #1f2937;
+      color: #eef2ff;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(57,217,138,.55);
+      box-shadow: 0 0 0 3px rgba(57,217,138,.18);
     }
   </style>
 </head>
@@ -459,6 +455,7 @@ input:focus, select:focus, textarea:focus{
         fDetails: "Extra details",
         fSend: "Send",
         fPrivacy: "Privacy: This form opens your texting app. The website does not store submissions.",
+
         optHome: "Home",
         optApt: "Apartment",
         optOffice: "Office",
@@ -531,6 +528,7 @@ input:focus, select:focus, textarea:focus{
         fDetails: "Detalles extra",
         fSend: "Enviar",
         fPrivacy: "Privacidad: Este formulario abre su app de mensajes. El sitio no guarda envíos.",
+
         optHome: "Casa",
         optApt: "Apartamento",
         optOffice: "Oficina",
@@ -630,11 +628,6 @@ input:focus, select:focus, textarea:focus{
 
       const smsLink = `sms:${PHONE_E164}?&body=${encodeURIComponent(msg)}`;
       window.location.href = smsLink;
-
-      // Email fallback (if SMS fails on desktop)
-      // Uncomment if you want:
-      // const mail = `mailto:${EMAIL}?subject=${encodeURIComponent("Cleaning Estimate Request - Denver")}&body=${encodeURIComponent(msg)}`;
-      // window.location.href = mail;
     });
 
     applyLanguage();
