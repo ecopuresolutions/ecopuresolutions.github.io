@@ -61,6 +61,7 @@
       background: rgba(255,255,255,.04);
       transition: transform .08s ease, background .2s ease;
       font-weight:700;
+      cursor:pointer;
     }
     .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.07)}
     .btn.primary{
@@ -169,6 +170,24 @@
       .grid3{grid-template-columns:1fr}
       .grid2{grid-template-columns:1fr}
     }
+
+    /* Quote form */
+    form{margin-top:12px}
+    label{display:grid;gap:6px;margin:10px 0}
+    input,select,textarea{
+      width:100%;
+      padding:11px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{resize:vertical}
+    .formRow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media (max-width: 550px){
+      .formRow{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -215,6 +234,66 @@
           <p class="tiny" data-i18n="offersNote">
             Ask by text and we’ll confirm the discount details when we schedule.
           </p>
+        </div>
+
+        <div class="section card">
+          <h2 data-i18n="quoteTitle">Get a Free Estimate</h2>
+          <p class="tiny" data-i18n="quoteNote">
+            Fill this out and tap “Send.” It will open a pre-filled text message to us (no info is stored on the website).
+          </p>
+
+          <form id="quoteForm">
+            <div class="formRow">
+              <label>
+                <span data-i18n="fName">Name</span>
+                <input name="name" autocomplete="name" required />
+              </label>
+
+              <label>
+                <span data-i18n="fPhone">Your Phone</span>
+                <input name="phone" inputmode="tel" autocomplete="tel" required />
+              </label>
+            </div>
+
+            <div class="formRow">
+              <label>
+                <span data-i18n="fType">Type of space</span>
+                <select name="space">
+                  <option value="Home" data-i18n="optHome">Home</option>
+                  <option value="Apartment" data-i18n="optApt">Apartment</option>
+                  <option value="Office" data-i18n="optOffice">Office</option>
+                  <option value="Airbnb" data-i18n="optAirbnb">Airbnb</option>
+                </select>
+              </label>
+
+              <label>
+                <span data-i18n="fService">Service needed</span>
+                <select name="service">
+                  <option value="Residential cleaning" data-i18n="optRes">Residential cleaning</option>
+                  <option value="Commercial/office cleaning" data-i18n="optCom">Commercial/office cleaning</option>
+                  <option value="Move-in / move-out" data-i18n="optMove">Move-in / Move-out</option>
+                  <option value="Deep cleaning" data-i18n="optDeep">Deep cleaning</option>
+                  <option value="Airbnb turnover" data-i18n="optTurn">Airbnb turnover</option>
+                  <option value="Custom package" data-i18n="optCustom">Custom package</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              <span data-i18n="fSize">Approx size (beds/baths or sq ft)</span>
+              <input name="size" placeholder="e.g., 2 bed / 2 bath" />
+            </label>
+
+            <label>
+              <span data-i18n="fDetails">Extra details</span>
+              <textarea name="details" rows="4" placeholder="Priority areas, pets, schedule preference, etc."></textarea>
+            </label>
+
+            <button class="btn primary" type="submit" data-i18n="fSend">Send</button>
+            <p class="tiny muted" style="margin:10px 0 0" data-i18n="fPrivacy">
+              Privacy: This form opens your texting app. The website does not store submissions.
+            </p>
+          </form>
         </div>
       </div>
 
@@ -283,14 +362,6 @@
           <p data-i18n="srv6d">Tell us your priorities—we’ll build a plan that fits your space and budget.</p>
         </div>
       </div>
-
-      <div class="card section">
-        <h3 data-i18n="howQuoteTitle">Fast Quote (by Text)</h3>
-        <p class="tiny" data-i18n="howQuoteNote">
-          To get a quick estimate, text us: type of space (home/office/Airbnb), approximate size, and the service you need.
-        </p>
-        <a class="btn primary" id="quickTextBtn" href="sms:+13345464083" data-i18n="quickText">Text Now</a>
-      </div>
     </section>
 
     <section class="section">
@@ -346,12 +417,35 @@
         pill2: "Bilingual (EN/ES)",
         pill3: "Residential + Commercial",
         pill4: "Serving Denver",
+
         offersTitle: "Week 1 Specials",
         offer1a: "20% off",
         offer1b: "your first cleaning (new clients)",
         offer2a: "10% referral discount",
         offer2b: "per referred client (up to 5 clients)",
         offersNote: "Ask by text and we’ll confirm the discount details when we schedule.",
+
+        quoteTitle: "Get a Free Estimate",
+        quoteNote: "Fill this out and tap “Send.” It will open a pre-filled text message to us (no info is stored on the website).",
+        fName: "Name",
+        fPhone: "Your Phone",
+        fType: "Type of space",
+        fService: "Service needed",
+        fSize: "Approx size (beds/baths or sq ft)",
+        fDetails: "Extra details",
+        fSend: "Send",
+        fPrivacy: "Privacy: This form opens your texting app. The website does not store submissions.",
+        optHome: "Home",
+        optApt: "Apartment",
+        optOffice: "Office",
+        optAirbnb: "Airbnb",
+        optRes: "Residential cleaning",
+        optCom: "Commercial/office cleaning",
+        optMove: "Move-in / Move-out",
+        optDeep: "Deep cleaning",
+        optTurn: "Airbnb turnover",
+        optCustom: "Custom package",
+
         contactTitle: "Contact",
         contactNote: "Call or text for a fast quote. Most estimates can be done from a few details.",
         phoneLabel: "Phone",
@@ -359,6 +453,7 @@
         textValue: "Request a free estimate",
         emailLabel: "Email",
         trustLine: "Locally focused, detail-oriented, and respectful of your space. We show up ready, communicate clearly, and clean thoroughly.",
+
         servicesTitle: "Services",
         srv1: "Residential Cleaning",
         srv1d: "Homes, apartments, recurring or one-time cleanings.",
@@ -372,14 +467,13 @@
         srv5d: "Detail-focused cleaning for kitchens, bathrooms, and high-touch areas.",
         srv6: "Custom Cleaning Packages",
         srv6d: "Tell us your priorities—we’ll build a plan that fits your space and budget.",
-        howQuoteTitle: "Fast Quote (by Text)",
-        howQuoteNote: "To get a quick estimate, text us: type of space (home/office/Airbnb), approximate size, and the service you need.",
-        quickText: "Text Now",
+
         whoTitle: "Who We Work With",
         who1: "Homeowners and renters",
         who2: "Property managers and landlords",
         who3: "Airbnb hosts and short-term rentals",
         who4: "Small offices and large office spaces",
+
         areaTitle: "Service Area",
         areaText: "Serving Denver, CO. Ask about nearby neighborhoods.",
         footerLine: "Residential & Commercial Cleaning • Denver, CO",
@@ -395,12 +489,35 @@
         pill2: "Bilingüe (ES/EN)",
         pill3: "Residencial + Comercial",
         pill4: "Sirviendo Denver",
+
         offersTitle: "Promociones (Semana 1)",
         offer1a: "20% de descuento",
         offer1b: "en su primera limpieza (clientes nuevos)",
         offer2a: "10% de descuento por referidos",
         offer2b: "por cada cliente referido (hasta 5 clientes)",
         offersNote: "Pida por texto y confirmamos los detalles del descuento al agendar.",
+
+        quoteTitle: "Pida un Estimado Gratis",
+        quoteNote: "Llene esto y toque “Enviar”. Se abrirá un texto ya escrito para enviarnos (el sitio no guarda información).",
+        fName: "Nombre",
+        fPhone: "Su Teléfono",
+        fType: "Tipo de espacio",
+        fService: "Servicio que necesita",
+        fSize: "Tamaño aprox (cuartos/baños o pies²)",
+        fDetails: "Detalles extra",
+        fSend: "Enviar",
+        fPrivacy: "Privacidad: Este formulario abre su app de mensajes. El sitio no guarda envíos.",
+        optHome: "Casa",
+        optApt: "Apartamento",
+        optOffice: "Oficina",
+        optAirbnb: "Airbnb",
+        optRes: "Limpieza residencial",
+        optCom: "Limpieza comercial/oficina",
+        optMove: "Limpieza de mudanza (entrada/salida)",
+        optDeep: "Limpieza profunda",
+        optTurn: "Limpieza para Airbnb",
+        optCustom: "Paquete personalizado",
+
         contactTitle: "Contacto",
         contactNote: "Llame o mande texto para una cotización rápida. Muchos estimados se pueden hacer con pocos detalles.",
         phoneLabel: "Teléfono",
@@ -408,6 +525,7 @@
         textValue: "Pedir estimado gratis",
         emailLabel: "Correo",
         trustLine: "Enfocados en Denver, detallistas y respetuosos con su espacio. Llegamos listos, nos comunicamos claro y limpiamos a fondo.",
+
         servicesTitle: "Servicios",
         srv1: "Limpieza Residencial",
         srv1d: "Casas, apartamentos, limpiezas recurrentes o una sola vez.",
@@ -421,14 +539,13 @@
         srv5d: "Enfocada en detalles para cocina, baños y áreas de alto contacto.",
         srv6: "Paquetes Personalizados",
         srv6d: "Díganos sus prioridades y armamos un plan según su espacio y presupuesto.",
-        howQuoteTitle: "Cotización Rápida (por Texto)",
-        howQuoteNote: "Para un estimado rápido, envíe por texto: tipo de espacio (casa/oficina/Airbnb), tamaño aproximado y el servicio que necesita.",
-        quickText: "Enviar Texto",
+
         whoTitle: "Con Quién Trabajamos",
         who1: "Dueños de casa e inquilinos",
         who2: "Administradores de propiedad y dueños",
         who3: "Anfitriones de Airbnb y rentas cortas",
         who4: "Oficinas pequeñas y oficinas grandes",
+
         areaTitle: "Área de Servicio",
         areaText: "Sirviendo Denver, CO. Pregunte por vecindarios cercanos.",
         footerLine: "Limpieza Residencial y Comercial • Denver, CO",
@@ -439,16 +556,28 @@
     let lang = "en";
     const langBtn = document.getElementById("langBtn");
 
-    function setSMSLinks() {
-      const bodyEN = `Hi! I'd like a free cleaning estimate in Denver.%0AName:%0AType of space (home/office/Airbnb):%0AApprox size:%0AService needed:%0ABest day/time:`;
-      const bodyES = `Hola! Quisiera un estimado gratis de limpieza en Denver.%0ANombre:%0ATipo de espacio (casa/oficina/Airbnb):%0ATamaño aprox:%0AServicio:%0AMejor día/hora:`;
+    function buildSMSBody(formData) {
+      const name = formData.get("name") || "";
+      const phone = formData.get("phone") || "";
+      const space = formData.get("space") || "";
+      const service = formData.get("service") || "";
+      const size = formData.get("size") || "";
+      const details = formData.get("details") || "";
+
+      if (lang === "en") {
+        return `Hi! I'd like a free cleaning estimate in Denver.\nName: ${name}\nMy phone: ${phone}\nType of space: ${space}\nService needed: ${service}\nApprox size: ${size}\nDetails: ${details}`;
+      }
+      return `Hola! Quisiera un estimado gratis de limpieza en Denver.\nNombre: ${name}\nMi teléfono: ${phone}\nTipo de espacio: ${space}\nServicio: ${service}\nTamaño aprox: ${size}\nDetalles: ${details}`;
+    }
+
+    function setQuickSMSLinks() {
+      const bodyEN = `Hi! I'd like a free cleaning estimate in Denver.\nName:\nMy phone:\nType of space (home/office/Airbnb):\nService needed:\nApprox size:\nDetails:`;
+      const bodyES = `Hola! Quisiera un estimado gratis de limpieza en Denver.\nNombre:\nMi teléfono:\nTipo de espacio (casa/oficina/Airbnb):\nServicio:\nTamaño aprox:\nDetalles:`;
       const body = (lang === "en") ? bodyEN : bodyES;
 
-      const sms = `sms:${PHONE_E164}?&body=${body}`;
+      const sms = `sms:${PHONE_E164}?&body=${encodeURIComponent(body)}`;
       document.getElementById("textBtn").href = sms;
       document.getElementById("smsCard").href = sms;
-      document.getElementById("quickTextBtn").href = sms;
-
       document.getElementById("callBtn").href = `tel:${PHONE_E164}`;
     }
 
@@ -462,12 +591,26 @@
         if (val) el.textContent = val;
       });
 
-      setSMSLinks();
+      setQuickSMSLinks();
     }
 
     langBtn.addEventListener("click", () => {
       lang = (lang === "en") ? "es" : "en";
       applyLanguage();
+    });
+
+    document.getElementById("quoteForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const msg = buildSMSBody(fd);
+
+      const smsLink = `sms:${PHONE_E164}?&body=${encodeURIComponent(msg)}`;
+      window.location.href = smsLink;
+
+      // Email fallback (if SMS fails on desktop)
+      // Uncomment if you want:
+      // const mail = `mailto:${EMAIL}?subject=${encodeURIComponent("Cleaning Estimate Request - Denver")}&body=${encodeURIComponent(msg)}`;
+      // window.location.href = mail;
     });
 
     applyLanguage();
