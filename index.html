@@ -22,6 +22,30 @@
 
       --border:rgba(255,255,255,.12);
       --shadow: 0 10px 30px rgba(0,0,0,.35);
+      /* --- Fix dropdown visibility on dark theme --- */
+select{
+  color: var(--text);
+  background: rgba(255,255,255,.03);
+}
+
+/* The opened dropdown list items */
+select option{
+  background: #0f172a;   /* dark background */
+  color: #eef2ff;        /* bright text */
+}
+
+/* Highlighted/selected option */
+select option:checked,
+select option:hover{
+  background: #1f2937;
+  color: #eef2ff;
+}
+
+/* Focus ring so it feels premium */
+input:focus, select:focus, textarea:focus{
+  border-color: rgba(57,217,138,.55);
+  box-shadow: 0 0 0 3px rgba(57,217,138,.18);
+}
     }
     *{box-sizing:border-box}
     body{
