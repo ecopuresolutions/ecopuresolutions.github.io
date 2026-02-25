@@ -1,34 +1,454 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>Eco-Pure Solutions LLC</title>
-    <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Eco-Pure Solutions LLC | Denver Cleaning (Residential & Commercial)</title>
+  <meta name="description" content="Eco-friendly residential & commercial cleaning in Denver, CO. Bilingual service (English/Español). Free estimates. First-time discount and referral rewards." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121a2b;
+      --text:#eef2ff;
+      --muted:#b8c0d9;
+      --accent:#77e0c4;
+      --accent2:#8ab4ff;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(900px 600px at 10% 10%, rgba(119,224,196,.18), transparent 55%),
+        radial-gradient(900px 700px at 90% 15%, rgba(138,180,255,.16), transparent 60%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1100px,92%);margin:0 auto}
+    header{
+      position:sticky; top:0; z-index:50;
+      background: rgba(11,18,32,.72);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{
+      width:42px;height:42px;border-radius:14px;
+      display:grid;place-items:center;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow);
+      font-size:20px;
+    }
+    .bname{font-weight:900;letter-spacing:.2px}
+    .btag{font-size:.92rem;color:var(--muted)}
+    .actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      transition: transform .08s ease, background .2s ease;
+      font-weight:700;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.07)}
+    .btn.primary{
+      border-color: rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(119,224,196,.22), rgba(138,180,255,.18));
+    }
+    .btn.ghost{background: rgba(255,255,255,.02)}
+    .lang{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      padding:10px 12px;border-radius:12px;
+      cursor:pointer;font-weight:800;
+    }
+
+    main{padding:34px 0 50px}
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:18px;
+      align-items:start;
+      padding-top: 10px;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(2rem, 3.6vw, 3.1rem);
+      line-height:1.05;
+    }
+    .sub{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.55;
+    }
+    .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+    .pill{
+      padding:8px 10px;border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:.93rem;
+    }
+    .card{
+      background: rgba(18,26,43,.72);
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:16px;
+      box-shadow: var(--shadow);
+    }
+    .card h2,.card h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .section{margin-top:22px}
+    .tile{
+      background: rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:14px;
+    }
+    .tile h3{margin:0 0 8px}
+    .tile p{margin:0;color:var(--muted);line-height:1.5}
+    ul{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+    li{margin:6px 0}
+    .contactGrid{display:grid;gap:10px;margin-top:12px}
+    .contactCard{
+      display:flex;gap:12px;align-items:center;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      border-radius:16px;
+      padding:12px;
+    }
+    .icon{
+      width:40px;height:40px;border-radius:14px;
+      display:grid;place-items:center;
+      background: rgba(255,255,255,.05);
+      border:1px solid var(--border);
+      font-size:18px;
+    }
+    .value{font-weight:900}
+    .tiny{font-size:.9rem;color:var(--muted);line-height:1.5}
+    footer{
+      border-top:1px solid var(--border);
+      background: rgba(11,18,32,.6);
+      padding:18px 0;
+    }
+    .footerRow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    @media (max-width: 950px){
+      .hero{grid-template-columns:1fr}
+      .grid3{grid-template-columns:1fr}
+      .grid2{grid-template-columns:1fr}
+    }
+  </style>
 </head>
-<body style="font-family: Arial; text-align:center; padding:40px;">
+<body>
+  <header>
+    <div class="wrap topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">🌿</div>
+        <div>
+          <div class="bname">Eco-Pure Solutions LLC</div>
+          <div class="btag" data-i18n="tag">Residential & Commercial Cleaning • Denver, CO</div>
+        </div>
+      </div>
 
-    <h1>Eco-Pure Solutions LLC</h1>
-    <h2>Commercial & Residential Cleaning Services</h2>
-    <h3>Servicios de Limpieza Comercial y Residencial</h3>
+      <div class="actions">
+        <button class="lang" id="langBtn" type="button" aria-label="Toggle language">ES</button>
+        <a class="btn ghost" id="callBtn" href="tel:+13345464083" data-i18n="call">Call</a>
+        <a class="btn primary" id="textBtn" href="sms:+13345464083" data-i18n="text">Text for a Free Estimate</a>
+      </div>
+    </div>
+  </header>
 
-    <p><strong>Serving Denver, CO</strong></p>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1 data-i18n="headline">Eco-friendly cleaning that looks professional—and feels healthy.</h1>
+        <p class="sub" data-i18n="subheadline">
+          We help homes and businesses in Denver stay clean, presentable, and ready for guests, tenants, or clients.
+          Bilingual service (English & Spanish). Free estimates by call or text.
+        </p>
 
-    <hr>
+        <div class="pillrow">
+          <div class="pill" data-i18n="pill1">Free estimates</div>
+          <div class="pill" data-i18n="pill2">Bilingual (EN/ES)</div>
+          <div class="pill" data-i18n="pill3">Residential + Commercial</div>
+          <div class="pill" data-i18n="pill4">Serving Denver</div>
+        </div>
 
-    <h2>Call or Text for a Free Estimate</h2>
-    <p><strong>Phone:</strong> (334)546-4083</p>
-    <p><strong>Email:</strong> ecopuresolutionsllc@gmail.com</p>
+        <div class="section card">
+          <h2 data-i18n="offersTitle">Week 1 Specials</h2>
+          <ul>
+            <li><strong data-i18n="offer1a">20% off</strong> <span data-i18n="offer1b">your first cleaning (new clients)</span></li>
+            <li><strong data-i18n="offer2a">10% referral discount</strong> <span data-i18n="offer2b">per referred client (up to 5 clients)</span></li>
+          </ul>
+          <p class="tiny" data-i18n="offersNote">
+            Ask by text and we’ll confirm the discount details when we schedule.
+          </p>
+        </div>
+      </div>
 
-    <hr>
+      <div class="card">
+        <h2 data-i18n="contactTitle">Contact</h2>
+        <p class="muted" data-i18n="contactNote">Call or text for a fast quote. Most estimates can be done from a few details.</p>
 
-    <h3>What We Offer:</h3>
-    <p>Home & Apartment Cleaning</p>
-    <p>Office & Commercial Cleaning</p>
-    <p>Move-In / Move-Out Cleaning</p>
-    <p>Deep Cleaning & Disinfection</p>
+        <div class="contactGrid">
+          <a class="contactCard" href="tel:+13345464083">
+            <div class="icon">📞</div>
+            <div>
+              <div class="tiny" data-i18n="phoneLabel">Phone</div>
+              <div class="value">(334) 546-4083</div>
+            </div>
+          </a>
 
-    <hr>
+          <a class="contactCard" id="smsCard" href="sms:+13345464083">
+            <div class="icon">💬</div>
+            <div>
+              <div class="tiny" data-i18n="textLabel">Text</div>
+              <div class="value" data-i18n="textValue">Request a free estimate</div>
+            </div>
+          </a>
 
-    <p>Get 20% Off Your First Cleaning!</p>
+          <a class="contactCard" href="mailto:ecopuresolutionsllc@gmail.com?subject=Cleaning%20Estimate%20Request%20-%20Denver">
+            <div class="icon">✉️</div>
+            <div>
+              <div class="tiny" data-i18n="emailLabel">Email</div>
+              <div class="value">ecopuresolutionsllc@gmail.com</div>
+            </div>
+          </a>
+        </div>
 
+        <p class="tiny" data-i18n="trustLine">
+          Locally focused, detail-oriented, and respectful of your space. We show up ready, communicate clearly, and clean thoroughly.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 data-i18n="servicesTitle">Services</h2>
+      <div class="grid3">
+        <div class="tile">
+          <h3 data-i18n="srv1">Residential Cleaning</h3>
+          <p data-i18n="srv1d">Homes, apartments, recurring or one-time cleanings.</p>
+        </div>
+        <div class="tile">
+          <h3 data-i18n="srv2">Commercial / Office Cleaning</h3>
+          <p data-i18n="srv2d">Small offices, large office spaces, common areas, restrooms, break rooms.</p>
+        </div>
+        <div class="tile">
+          <h3 data-i18n="srv3">Airbnb Turnovers</h3>
+          <p data-i18n="srv3d">Guest-ready cleans to keep your ratings strong and your schedule on track.</p>
+        </div>
+
+        <div class="tile">
+          <h3 data-i18n="srv4">Move-In / Move-Out</h3>
+          <p data-i18n="srv4d">Ideal for tenants, property managers, and landlords preparing a unit.</p>
+        </div>
+        <div class="tile">
+          <h3 data-i18n="srv5">Deep Cleaning & Disinfection</h3>
+          <p data-i18n="srv5d">Detail-focused cleaning for kitchens, bathrooms, and high-touch areas.</p>
+        </div>
+        <div class="tile">
+          <h3 data-i18n="srv6">Custom Cleaning Packages</h3>
+          <p data-i18n="srv6d">Tell us your priorities—we’ll build a plan that fits your space and budget.</p>
+        </div>
+      </div>
+
+      <div class="card section">
+        <h3 data-i18n="howQuoteTitle">Fast Quote (by Text)</h3>
+        <p class="tiny" data-i18n="howQuoteNote">
+          To get a quick estimate, text us: type of space (home/office/Airbnb), approximate size, and the service you need.
+        </p>
+        <a class="btn primary" id="quickTextBtn" href="sms:+13345464083" data-i18n="quickText">Text Now</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid2">
+        <div class="card">
+          <h2 data-i18n="whoTitle">Who We Work With</h2>
+          <ul>
+            <li data-i18n="who1">Homeowners and renters</li>
+            <li data-i18n="who2">Property managers and landlords</li>
+            <li data-i18n="who3">Airbnb hosts and short-term rentals</li>
+            <li data-i18n="who4">Small offices and large office spaces</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2 data-i18n="areaTitle">Service Area</h2>
+          <p class="muted" data-i18n="areaText">Serving Denver, CO. Ask about nearby neighborhoods.</p>
+          <div style="border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:10px">
+            <iframe
+              title="Denver map"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Denver,%20CO&output=embed"
+              style="width:100%;height:240px;border:0"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footerRow">
+      <div>
+        <div class="bname">Eco-Pure Solutions LLC</div>
+        <div class="tiny" data-i18n="footerLine">Residential & Commercial Cleaning • Denver, CO</div>
+      </div>
+      <a class="tiny" href="#top" data-i18n="backTop">Back to top</a>
+    </div>
+  </footer>
+
+  <script>
+    const PHONE_E164 = "+13345464083";
+    const PHONE_DISPLAY = "(334) 546-4083";
+    const EMAIL = "ecopuresolutionsllc@gmail.com";
+
+    const copy = {
+      en: {
+        tag: "Residential & Commercial Cleaning • Denver, CO",
+        call: "Call",
+        text: "Text for a Free Estimate",
+        headline: "Eco-friendly cleaning that looks professional—and feels healthy.",
+        subheadline: "We help homes and businesses in Denver stay clean, presentable, and ready for guests, tenants, or clients. Bilingual service (English & Spanish). Free estimates by call or text.",
+        pill1: "Free estimates",
+        pill2: "Bilingual (EN/ES)",
+        pill3: "Residential + Commercial",
+        pill4: "Serving Denver",
+        offersTitle: "Week 1 Specials",
+        offer1a: "20% off",
+        offer1b: "your first cleaning (new clients)",
+        offer2a: "10% referral discount",
+        offer2b: "per referred client (up to 5 clients)",
+        offersNote: "Ask by text and we’ll confirm the discount details when we schedule.",
+        contactTitle: "Contact",
+        contactNote: "Call or text for a fast quote. Most estimates can be done from a few details.",
+        phoneLabel: "Phone",
+        textLabel: "Text",
+        textValue: "Request a free estimate",
+        emailLabel: "Email",
+        trustLine: "Locally focused, detail-oriented, and respectful of your space. We show up ready, communicate clearly, and clean thoroughly.",
+        servicesTitle: "Services",
+        srv1: "Residential Cleaning",
+        srv1d: "Homes, apartments, recurring or one-time cleanings.",
+        srv2: "Commercial / Office Cleaning",
+        srv2d: "Small offices, large office spaces, common areas, restrooms, break rooms.",
+        srv3: "Airbnb Turnovers",
+        srv3d: "Guest-ready cleans to keep your ratings strong and your schedule on track.",
+        srv4: "Move-In / Move-Out",
+        srv4d: "Ideal for tenants, property managers, and landlords preparing a unit.",
+        srv5: "Deep Cleaning & Disinfection",
+        srv5d: "Detail-focused cleaning for kitchens, bathrooms, and high-touch areas.",
+        srv6: "Custom Cleaning Packages",
+        srv6d: "Tell us your priorities—we’ll build a plan that fits your space and budget.",
+        howQuoteTitle: "Fast Quote (by Text)",
+        howQuoteNote: "To get a quick estimate, text us: type of space (home/office/Airbnb), approximate size, and the service you need.",
+        quickText: "Text Now",
+        whoTitle: "Who We Work With",
+        who1: "Homeowners and renters",
+        who2: "Property managers and landlords",
+        who3: "Airbnb hosts and short-term rentals",
+        who4: "Small offices and large office spaces",
+        areaTitle: "Service Area",
+        areaText: "Serving Denver, CO. Ask about nearby neighborhoods.",
+        footerLine: "Residential & Commercial Cleaning • Denver, CO",
+        backTop: "Back to top",
+      },
+      es: {
+        tag: "Servicios de Limpieza Residencial y Comercial • Denver, CO",
+        call: "Llamar",
+        text: "Texto para Estimado Gratis",
+        headline: "Limpieza ecológica con presentación profesional—y un ambiente más saludable.",
+        subheadline: "Ayudamos a hogares y negocios en Denver a mantenerse limpios, presentables y listos para huéspedes, inquilinos o clientes. Servicio bilingüe (Español e Inglés). Estimados gratis por llamada o texto.",
+        pill1: "Estimados gratis",
+        pill2: "Bilingüe (ES/EN)",
+        pill3: "Residencial + Comercial",
+        pill4: "Sirviendo Denver",
+        offersTitle: "Promociones (Semana 1)",
+        offer1a: "20% de descuento",
+        offer1b: "en su primera limpieza (clientes nuevos)",
+        offer2a: "10% de descuento por referidos",
+        offer2b: "por cada cliente referido (hasta 5 clientes)",
+        offersNote: "Pida por texto y confirmamos los detalles del descuento al agendar.",
+        contactTitle: "Contacto",
+        contactNote: "Llame o mande texto para una cotización rápida. Muchos estimados se pueden hacer con pocos detalles.",
+        phoneLabel: "Teléfono",
+        textLabel: "Texto",
+        textValue: "Pedir estimado gratis",
+        emailLabel: "Correo",
+        trustLine: "Enfocados en Denver, detallistas y respetuosos con su espacio. Llegamos listos, nos comunicamos claro y limpiamos a fondo.",
+        servicesTitle: "Servicios",
+        srv1: "Limpieza Residencial",
+        srv1d: "Casas, apartamentos, limpiezas recurrentes o una sola vez.",
+        srv2: "Limpieza Comercial / Oficinas",
+        srv2d: "Oficinas pequeñas y grandes, áreas comunes, baños y salas de descanso.",
+        srv3: "Limpieza para Airbnb",
+        srv3d: "Limpiezas listas para huéspedes para mantener buenas reseñas y su calendario al día.",
+        srv4: "Limpieza de Mudanza (Entrada y Salida)",
+        srv4d: "Ideal para inquilinos, administradores de propiedad y dueños preparando una unidad.",
+        srv5: "Limpieza Profunda y Desinfección",
+        srv5d: "Enfocada en detalles para cocina, baños y áreas de alto contacto.",
+        srv6: "Paquetes Personalizados",
+        srv6d: "Díganos sus prioridades y armamos un plan según su espacio y presupuesto.",
+        howQuoteTitle: "Cotización Rápida (por Texto)",
+        howQuoteNote: "Para un estimado rápido, envíe por texto: tipo de espacio (casa/oficina/Airbnb), tamaño aproximado y el servicio que necesita.",
+        quickText: "Enviar Texto",
+        whoTitle: "Con Quién Trabajamos",
+        who1: "Dueños de casa e inquilinos",
+        who2: "Administradores de propiedad y dueños",
+        who3: "Anfitriones de Airbnb y rentas cortas",
+        who4: "Oficinas pequeñas y oficinas grandes",
+        areaTitle: "Área de Servicio",
+        areaText: "Sirviendo Denver, CO. Pregunte por vecindarios cercanos.",
+        footerLine: "Limpieza Residencial y Comercial • Denver, CO",
+        backTop: "Volver arriba",
+      }
+    };
+
+    let lang = "en";
+    const langBtn = document.getElementById("langBtn");
+
+    function setSMSLinks() {
+      const bodyEN = `Hi! I'd like a free cleaning estimate in Denver.%0AName:%0AType of space (home/office/Airbnb):%0AApprox size:%0AService needed:%0ABest day/time:`;
+      const bodyES = `Hola! Quisiera un estimado gratis de limpieza en Denver.%0ANombre:%0ATipo de espacio (casa/oficina/Airbnb):%0ATamaño aprox:%0AServicio:%0AMejor día/hora:`;
+      const body = (lang === "en") ? bodyEN : bodyES;
+      const sms = `sms:${PHONE_E164}?&body=${body}`;
+      document.getElementById("textBtn").href = sms;
+      document.getElementById("smsCard").href = sms;
+      document.getElementById("quickTextBtn").href = sms;
+
+      document.getElementById("callBtn").href = `tel:${PHONE_E164}`;
+    }
+
+    function applyLanguage() {
+      document.documentElement.lang = lang;
+      langBtn.textContent = (lang === "en") ? "ES" : "EN";
+
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        const val = copy[lang][key];
+        if (val) el.textContent = val;
+      });
+
+      setSMSLinks();
+    }
+
+    langBtn.addEventListener("click", () => {
+      lang = (lang === "en") ? "es" : "en";
+      applyLanguage();
+    });
+
+    applyLanguage();
+  </script>
 </body>
 </html>
