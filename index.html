@@ -3,94 +3,242 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Eco-Pure Solutions LLC | Denver Cleaning (Residential & Commercial)</title>
-  <meta name="description" content="Eco-friendly residential & commercial cleaning in Denver, CO. Bilingual service (English/Español). Free estimates. First-time discount and referral rewards." />
+
+  <title>Denver Cleaning Services | Eco-Pure Solutions LLC</title>
+  <meta
+    name="description"
+    content="Eco-Pure Solutions LLC provides residential and commercial cleaning in Denver, CO. Bilingual service, free estimates, deep cleaning, move-in/move-out, office cleaning, and Airbnb turnover."
+  />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="Eco-Pure Solutions LLC" />
+  <meta name="theme-color" content="#22c55e" />
+
+  <!-- Replace with your real GitHub Pages or custom domain URL -->
+  <link rel="canonical" href="https://YOUR-DOMAIN-OR-GITHUB-PAGES-URL/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Denver Cleaning Services | Eco-Pure Solutions LLC" />
+  <meta
+    property="og:description"
+    content="Residential and commercial cleaning in Denver, CO. Free estimates. Bilingual service. Call or text Eco-Pure Solutions LLC."
+  />
+  <meta property="og:url" content="https://YOUR-DOMAIN-OR-GITHUB-PAGES-URL/" />
+  <meta property="og:site_name" content="Eco-Pure Solutions LLC" />
+  <!-- Replace with your real image/logo URL -->
+  <meta property="og:image" content="https://YOUR-DOMAIN-OR-GITHUB-PAGES-URL/logo.jpg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Denver Cleaning Services | Eco-Pure Solutions LLC" />
+  <meta
+    name="twitter:description"
+    content="Eco-friendly residential and commercial cleaning in Denver, CO. Free estimates. Bilingual service."
+  />
+  <meta name="twitter:image" content="https://YOUR-DOMAIN-OR-GITHUB-PAGES-URL/logo.jpg" />
+
+  <!-- Local business structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://YOUR-DOMAIN-OR-GITHUB-PAGES-URL/#business",
+    "name": "Eco-Pure Solutions LLC",
+    "url": "https://YOUR-DOMAIN-OR-GITHUB-PAGES-URL/",
+    "telephone": "+13039177278",
+    "email": "ecopuresolutionsllc@gmail.com",
+    "description": "Eco-Pure Solutions LLC provides residential and commercial cleaning services in Denver, Colorado, including deep cleaning, office cleaning, Airbnb turnover, and move-in/move-out cleaning.",
+    "areaServed": {
+      "@type": "City",
+      "name": "Denver"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Denver",
+      "addressRegion": "CO",
+      "addressCountry": "US"
+    },
+    "sameAs": [],
+    "priceRange": "$$"
+  }
+  </script>
+
+  <!-- Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
 
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#121a2b;
-      --text:#eef2ff;
-      --muted:#b8c0d9;
-
-      /* Brand accents (Green + Orange) */
-      --green:#39d98a;
-      --orange:#ff9f43;
-
-      --accent: var(--green);
-      --accent2: var(--orange);
-
+      --bg:#08110d;
+      --card:rgba(12,22,18,.78);
+      --text:#eefcf4;
+      --muted:#c5dfcf;
+      --green:#22c55e;
+      --green-2:#4ade80;
+      --orange:#f97316;
+      --accent:var(--green);
+      --accent2:var(--orange);
       --border:rgba(255,255,255,.12);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --shadow:0 16px 40px rgba(0,0,0,.34);
+      --maxw:1100px;
     }
+
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(950px 650px at 12% 10%, rgba(57,217,138,.26), transparent 58%),
-        radial-gradient(950px 750px at 88% 14%, rgba(255,159,67,.22), transparent 62%),
-        radial-gradient(700px 500px at 50% 85%, rgba(57,217,138,.10), transparent 60%),
-        var(--bg);
-      color:var(--text);
-    }
-    a{color:inherit;text-decoration:none}
-    .wrap{width:min(1100px,92%);margin:0 auto}
-    header{
-      position:sticky; top:0; z-index:50;
-      background: rgba(11,18,32,.72);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0}
-    .brand{display:flex;align-items:center;gap:10px}
-    .logo{
-      width:42px;height:42px;border-radius:14px;
-      display:grid;place-items:center;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      box-shadow: var(--shadow);
-      font-size:20px;
-    }
-    .bname{font-weight:900;letter-spacing:.2px}
-    .btag{font-size:.92rem;color:var(--muted)}
-    .actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 14px;border-radius:12px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      transition: transform .08s ease, background .2s ease;
-      font-weight:700;
-      cursor:pointer;
-    }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.07)}
-    .btn.primary{
-      border-color: rgba(255,255,255,.16);
-      background: linear-gradient(135deg, rgba(57,217,138,.26), rgba(255,159,67,.18));
-    }
-    .btn.ghost{background: rgba(255,255,255,.02)}
-    .lang{
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      color:var(--text);
-      padding:10px 12px;border-radius:12px;
-      cursor:pointer;font-weight:800;
+        linear-gradient(rgba(6,14,10,.80), rgba(6,14,10,.90)),
+        url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1800&auto=format&fit=crop') center/cover no-repeat fixed;
+      overflow-x:hidden;
     }
 
-    main{padding:34px 0 50px}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(var(--maxw),92%);margin:0 auto}
+
+    /* Floating leaves */
+    .leaf-layer{
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:0;
+    }
+    .leaf{
+      position:absolute;
+      top:-12vh;
+      font-size:22px;
+      opacity:.18;
+      filter:blur(.15px);
+      animation-name:fall;
+      animation-timing-function:linear;
+      animation-iteration-count:infinite;
+    }
+    .leaf:nth-child(1){left:6%; animation-duration:18s; animation-delay:-2s}
+    .leaf:nth-child(2){left:15%; animation-duration:24s; animation-delay:-8s; font-size:18px}
+    .leaf:nth-child(3){left:28%; animation-duration:20s; animation-delay:-5s}
+    .leaf:nth-child(4){left:42%; animation-duration:26s; animation-delay:-10s; font-size:19px}
+    .leaf:nth-child(5){left:56%; animation-duration:19s; animation-delay:-4s}
+    .leaf:nth-child(6){left:68%; animation-duration:22s; animation-delay:-7s; font-size:17px}
+    .leaf:nth-child(7){left:79%; animation-duration:25s; animation-delay:-12s}
+    .leaf:nth-child(8){left:90%; animation-duration:21s; animation-delay:-6s; font-size:20px}
+
+    @keyframes fall{
+      0%{transform:translate3d(0,0,0) rotate(0deg)}
+      25%{transform:translate3d(25px,30vh,0) rotate(70deg)}
+      50%{transform:translate3d(-18px,60vh,0) rotate(145deg)}
+      75%{transform:translate3d(20px,85vh,0) rotate(230deg)}
+      100%{transform:translate3d(-10px,115vh,0) rotate(320deg)}
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(7,16,12,.70);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      position:relative;
+      z-index:1;
+    }
+
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      display:grid;place-items:center;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+      box-shadow:var(--shadow);
+      font-size:20px;
+    }
+
+    .bname{font-weight:900;letter-spacing:.2px}
+    .btag{font-size:.93rem;color:var(--muted)}
+
+    .actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:1;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:11px 15px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      transition:transform .12s ease, background .2s ease, box-shadow .2s ease;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      background:rgba(255,255,255,.08);
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(34,197,94,.50), rgba(249,115,22,.38));
+      box-shadow:0 6px 20px rgba(34,197,94,.22);
+    }
+    .lang{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:800;
+    }
+
+    main{
+      padding:34px 0 54px;
+      position:relative;
+      z-index:1;
+    }
+
     .hero{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns:1.18fr .82fr;
       gap:18px;
       align-items:start;
-      padding-top: 10px;
+      padding-top:10px;
     }
+
     h1{
       margin:0 0 10px;
-      font-size: clamp(2rem, 3.6vw, 3.1rem);
-      line-height:1.05;
+      font-size:clamp(2rem, 3.8vw, 3.3rem);
+      line-height:1.03;
     }
+
     h2{
       position:relative;
       padding-bottom:6px;
@@ -101,78 +249,86 @@
       position:absolute;
       left:0;
       bottom:0;
-      width:64px;
+      width:70px;
       height:3px;
       border-radius:999px;
-      background: linear-gradient(90deg, rgba(57,217,138,.9), rgba(255,159,67,.9));
-      opacity:.9;
+      background:linear-gradient(90deg, rgba(34,197,94,.95), rgba(249,115,22,.92));
     }
+
     .sub{
       margin:0 0 16px;
       color:var(--muted);
       font-size:1.05rem;
-      line-height:1.55;
+      line-height:1.6;
     }
-    .pillrow{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+
+    .pillrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:14px 0 0;
+    }
+
     .pill{
-      padding:8px 10px;border-radius:999px;
+      padding:8px 10px;
+      border-radius:999px;
       border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
+      background:rgba(255,255,255,.03);
       color:var(--muted);
       font-size:.93rem;
     }
+
     .card{
-      background: rgba(18,26,43,.72);
+      background:var(--card);
       border:1px solid var(--border);
       border-radius:18px;
       padding:16px;
-      box-shadow: var(--shadow);
+      box-shadow:var(--shadow);
     }
+
     .card h3{margin:0 0 8px}
     .muted{color:var(--muted)}
+
     .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
     .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+
     .section{margin-top:22px}
+
     .tile{
-      background: rgba(255,255,255,.03);
+      background:rgba(255,255,255,.03);
       border:1px solid var(--border);
       border-radius:16px;
       padding:14px;
     }
     .tile h3{margin:0 0 8px}
-    .tile p{margin:0;color:var(--muted);line-height:1.5}
+    .tile p{margin:0;color:var(--muted);line-height:1.55}
+
     ul{margin:10px 0 0;padding-left:18px;color:var(--muted)}
     li{margin:6px 0}
+
     .contactGrid{display:grid;gap:10px;margin-top:12px}
     .contactCard{
-      display:flex;gap:12px;align-items:center;
+      display:flex;
+      gap:12px;
+      align-items:center;
       border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
+      background:rgba(255,255,255,.03);
       border-radius:16px;
       padding:12px;
     }
+
     .icon{
       width:40px;height:40px;border-radius:14px;
       display:grid;place-items:center;
-      background: rgba(255,255,255,.05);
+      background:rgba(255,255,255,.05);
       border:1px solid var(--border);
       font-size:18px;
-    }
-    .value{font-weight:900}
-    .tiny{font-size:.9rem;color:var(--muted);line-height:1.5}
-    footer{
-      border-top:1px solid var(--border);
-      background: rgba(11,18,32,.6);
-      padding:18px 0;
-    }
-    .footerRow{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-    @media (max-width: 950px){
-      .hero{grid-template-columns:1fr}
-      .grid3{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
+      flex:0 0 auto;
     }
 
-    /* Quote form */
+    .value{font-weight:900}
+    .tiny{font-size:.92rem;color:var(--muted);line-height:1.6}
+
     form{margin-top:12px}
     label{display:grid;gap:6px;margin:10px 0}
     input,select,textarea{
@@ -186,32 +342,85 @@
     }
     textarea{resize:vertical}
     .formRow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+    select option{
+      background:#0f172a;
+      color:#eef2ff;
+    }
+
+    input:focus,select:focus,textarea:focus{
+      border-color:rgba(34,197,94,.58);
+      box-shadow:0 0 0 3px rgba(34,197,94,.18);
+    }
+
+    .seo-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:14px;
+    }
+    .seo-links a{
+      font-size:.95rem;
+      color:#dcfce7;
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
+
+    .map-wrap{
+      margin-top:10px;
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+      background:rgba(255,255,255,.03);
+    }
+    #serviceMap{
+      width:100%;
+      height:320px;
+    }
+    .map-note{
+      padding:10px 12px;
+      border-top:1px solid var(--border);
+      font-size:.9rem;
+      color:var(--muted);
+    }
+
+    footer{
+      border-top:1px solid var(--border);
+      background:rgba(7,16,12,.65);
+      padding:18px 0;
+      position:relative;
+      z-index:1;
+    }
+    .footerRow{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 950px){
+      .hero{grid-template-columns:1fr}
+      .grid3,.grid2{grid-template-columns:1fr}
+    }
     @media (max-width: 550px){
       .formRow{grid-template-columns:1fr}
     }
-
-    /* --- Fix dropdown visibility on dark theme --- */
-select{
-  color: var(--text);
-  background: rgba(255,255,255,.03);
-}
-select option{
-  background: #0f172a;
-  color: #eef2ff;
-}
-select option:checked,
-select option:hover{
-  background: #1f2937;
-  color: #eef2ff;
-}
-input:focus, select:focus, textarea:focus{
-  border-color: rgba(57,217,138,.55);
-  box-shadow: 0 0 0 3px rgba(57,217,138,.18);
-}
   </style>
 </head>
 <body>
-  <header>
+  <div class="leaf-layer" aria-hidden="true">
+    <span class="leaf">🍃</span>
+    <span class="leaf">🌿</span>
+    <span class="leaf">🍃</span>
+    <span class="leaf">🌿</span>
+    <span class="leaf">🍃</span>
+    <span class="leaf">🌿</span>
+    <span class="leaf">🍃</span>
+    <span class="leaf">🌿</span>
+  </div>
+
+  <header id="top">
     <div class="wrap topbar">
       <div class="brand">
         <div class="logo" aria-hidden="true">🌿</div>
@@ -223,8 +432,8 @@ input:focus, select:focus, textarea:focus{
 
       <div class="actions">
         <button class="lang" id="langBtn" type="button" aria-label="Toggle language">ES</button>
-        <a class="btn ghost" id="callBtn" href="tel:+13345464083" data-i18n="call">Call</a>
-        <a class="btn primary" id="textBtn" href="sms:+13345464083" data-i18n="text">Text for a Free Estimate</a>
+        <a class="btn ghost" id="callBtn" href="tel:+13039177278" data-i18n="call">Call</a>
+        <a class="btn primary" id="textBtn" href="sms:+13039177278" data-i18n="text">Text for a Free Estimate</a>
       </div>
     </div>
   </header>
@@ -232,10 +441,9 @@ input:focus, select:focus, textarea:focus{
   <main class="wrap">
     <section class="hero">
       <div>
-        <h1 data-i18n="headline">Eco-friendly cleaning that looks professional—and feels healthy.</h1>
+        <h1 data-i18n="headline">Denver cleaning services that look professional and feel healthy.</h1>
         <p class="sub" data-i18n="subheadline">
-          We help homes and businesses in Denver stay clean, presentable, and ready for guests, tenants, or clients.
-          Bilingual service (English & Spanish). Free estimates by call or text.
+          Eco-Pure Solutions LLC helps homes, apartments, offices, and Airbnb properties in Denver stay clean, presentable, and ready for guests, tenants, or clients. Bilingual service in English and Spanish. Free estimates by call or text.
         </p>
 
         <div class="pillrow">
@@ -245,6 +453,13 @@ input:focus, select:focus, textarea:focus{
           <div class="pill" data-i18n="pill4">Serving Denver</div>
         </div>
 
+        <div class="seo-links" aria-label="Quick links">
+          <a href="#services" data-i18n="jump1">Cleaning services</a>
+          <a href="#service-area" data-i18n="jump2">Service area</a>
+          <a href="#contact" data-i18n="jump3">Contact Eco-Pure</a>
+          <a href="#quote" data-i18n="jump4">Free estimate</a>
+        </div>
+
         <div class="section card">
           <h2 data-i18n="offersTitle">Week 1 Specials</h2>
           <ul>
@@ -252,14 +467,14 @@ input:focus, select:focus, textarea:focus{
             <li><strong data-i18n="offer2a">10% referral discount</strong> <span data-i18n="offer2b">per referred client (up to 5 clients)</span></li>
           </ul>
           <p class="tiny" data-i18n="offersNote">
-            Ask by text and we’ll confirm the discount details when we schedule.
+            Ask by text and we’ll confirm discount details when we schedule.
           </p>
         </div>
 
-        <div class="section card">
+        <div class="section card" id="quote">
           <h2 data-i18n="quoteTitle">Get a Free Estimate</h2>
           <p class="tiny" data-i18n="quoteNote">
-            Fill this out and tap “Send.” It will open a pre-filled text message to us (no info is stored on the website).
+            Fill this out and tap “Send.” It opens a pre-filled text message to us. No info is stored on the website.
           </p>
 
           <form id="quoteForm">
@@ -291,7 +506,7 @@ input:focus, select:focus, textarea:focus{
                 <select name="service">
                   <option value="Residential cleaning" data-i18n="optRes">Residential cleaning</option>
                   <option value="Commercial/office cleaning" data-i18n="optCom">Commercial/office cleaning</option>
-                  <option value="Move-in / move-out" data-i18n="optMove">Move-in / Move-out</option>
+                  <option value="Move-in / Move-out" data-i18n="optMove">Move-in / Move-out</option>
                   <option value="Deep cleaning" data-i18n="optDeep">Deep cleaning</option>
                   <option value="Airbnb turnover" data-i18n="optTurn">Airbnb turnover</option>
                   <option value="Custom package" data-i18n="optCustom">Custom package</option>
@@ -317,20 +532,20 @@ input:focus, select:focus, textarea:focus{
         </div>
       </div>
 
-      <div class="card">
+      <div class="card" id="contact">
         <h2 data-i18n="contactTitle">Contact</h2>
         <p class="muted" data-i18n="contactNote">Call or text for a fast quote. Most estimates can be done from a few details.</p>
 
         <div class="contactGrid">
-          <a class="contactCard" href="tel:+13345464083">
+          <a class="contactCard" href="tel:+13039177278">
             <div class="icon">📞</div>
             <div>
               <div class="tiny" data-i18n="phoneLabel">Phone</div>
-              <div class="value">(334) 546-4083</div>
+              <div class="value">(303) 917-7278</div>
             </div>
           </a>
 
-          <a class="contactCard" id="smsCard" href="sms:+13345464083">
+          <a class="contactCard" id="smsCard" href="sms:+13039177278">
             <div class="icon">💬</div>
             <div>
               <div class="tiny" data-i18n="textLabel">Text</div>
@@ -353,8 +568,8 @@ input:focus, select:focus, textarea:focus{
       </div>
     </section>
 
-    <section class="section">
-      <h2 data-i18n="servicesTitle">Services</h2>
+    <section class="section" id="services">
+      <h2 data-i18n="servicesTitle">Cleaning Services in Denver</h2>
       <div class="grid3">
         <div class="tile">
           <h3 data-i18n="srv1">Residential Cleaning</h3>
@@ -368,7 +583,6 @@ input:focus, select:focus, textarea:focus{
           <h3 data-i18n="srv3">Airbnb Turnovers</h3>
           <p data-i18n="srv3d">Guest-ready cleans to keep your ratings strong and your schedule on track.</p>
         </div>
-
         <div class="tile">
           <h3 data-i18n="srv4">Move-In / Move-Out</h3>
           <p data-i18n="srv4d">Ideal for tenants, property managers, and landlords preparing a unit.</p>
@@ -379,7 +593,7 @@ input:focus, select:focus, textarea:focus{
         </div>
         <div class="tile">
           <h3 data-i18n="srv6">Custom Cleaning Packages</h3>
-          <p data-i18n="srv6d">Tell us your priorities—we’ll build a plan that fits your space and budget.</p>
+          <p data-i18n="srv6d">Tell us your priorities and we’ll build a plan that fits your space and budget.</p>
         </div>
       </div>
     </section>
@@ -396,16 +610,16 @@ input:focus, select:focus, textarea:focus{
           </ul>
         </div>
 
-        <div class="card">
+        <div class="card" id="service-area">
           <h2 data-i18n="areaTitle">Service Area</h2>
-          <p class="muted" data-i18n="areaText">Serving Denver, CO. Ask about nearby neighborhoods.</p>
-          <div style="border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:10px">
-            <iframe
-              title="Denver map"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.google.com/maps?q=Denver,%20CO&output=embed"
-              style="width:100%;height:240px;border:0"></iframe>
+          <p class="muted" data-i18n="areaText">
+            Covering approximately a 10-mile radius from 2600 W Florida Ave, Denver, CO.
+          </p>
+          <div class="map-wrap">
+            <div id="serviceMap" aria-label="Interactive service area map"></div>
+            <div class="map-note" data-i18n="mapNote">
+              Interactive map: marker at the service center and a 10-mile radius circle around it.
+            </div>
           </div>
         </div>
       </div>
@@ -423,30 +637,42 @@ input:focus, select:focus, textarea:focus{
   </footer>
 
   <script>
-    const PHONE_E164 = "+13345464083";
-    const EMAIL = "ecopuresolutionsllc@gmail.com";
+    const PHONE_E164 = "+13039177278";
+    const SERVICE_CENTER = {
+      address: "2600 W Florida Ave, Denver, CO 80219",
+      // Approximate Denver/Ruby Hill area center for immediate map load.
+      // Replace with exact lat/lng later if you want to fine-tune the pin.
+      lat: 39.6899,
+      lng: -105.0195,
+      radiusMeters: 16093 // ~10 miles
+    };
 
     const copy = {
       en: {
         tag: "Residential & Commercial Cleaning • Denver, CO",
         call: "Call",
         text: "Text for a Free Estimate",
-        headline: "Eco-friendly cleaning that looks professional—and feels healthy.",
-        subheadline: "We help homes and businesses in Denver stay clean, presentable, and ready for guests, tenants, or clients. Bilingual service (English & Spanish). Free estimates by call or text.",
+        headline: "Denver cleaning services that look professional and feel healthy.",
+        subheadline: "Eco-Pure Solutions LLC helps homes, apartments, offices, and Airbnb properties in Denver stay clean, presentable, and ready for guests, tenants, or clients. Bilingual service in English and Spanish. Free estimates by call or text.",
         pill1: "Free estimates",
         pill2: "Bilingual (EN/ES)",
         pill3: "Residential + Commercial",
         pill4: "Serving Denver",
+
+        jump1: "Cleaning services",
+        jump2: "Service area",
+        jump3: "Contact Eco-Pure",
+        jump4: "Free estimate",
 
         offersTitle: "Week 1 Specials",
         offer1a: "20% off",
         offer1b: "your first cleaning (new clients)",
         offer2a: "10% referral discount",
         offer2b: "per referred client (up to 5 clients)",
-        offersNote: "Ask by text and we’ll confirm the discount details when we schedule.",
+        offersNote: "Ask by text and we’ll confirm discount details when we schedule.",
 
         quoteTitle: "Get a Free Estimate",
-        quoteNote: "Fill this out and tap “Send.” It will open a pre-filled text message to us (no info is stored on the website).",
+        quoteNote: "Fill this out and tap “Send.” It opens a pre-filled text message to us. No info is stored on the website.",
         fName: "Name",
         fPhone: "Your Phone",
         fType: "Type of space",
@@ -475,7 +701,7 @@ input:focus, select:focus, textarea:focus{
         emailLabel: "Email",
         trustLine: "Locally focused, detail-oriented, and respectful of your space. We show up ready, communicate clearly, and clean thoroughly.",
 
-        servicesTitle: "Services",
+        servicesTitle: "Cleaning Services in Denver",
         srv1: "Residential Cleaning",
         srv1d: "Homes, apartments, recurring or one-time cleanings.",
         srv2: "Commercial / Office Cleaning",
@@ -487,7 +713,7 @@ input:focus, select:focus, textarea:focus{
         srv5: "Deep Cleaning & Disinfection",
         srv5d: "Detail-focused cleaning for kitchens, bathrooms, and high-touch areas.",
         srv6: "Custom Cleaning Packages",
-        srv6d: "Tell us your priorities—we’ll build a plan that fits your space and budget.",
+        srv6d: "Tell us your priorities and we’ll build a plan that fits your space and budget.",
 
         whoTitle: "Who We Work With",
         who1: "Homeowners and renters",
@@ -496,30 +722,36 @@ input:focus, select:focus, textarea:focus{
         who4: "Small offices and large office spaces",
 
         areaTitle: "Service Area",
-        areaText: "Serving Denver, CO. Ask about nearby neighborhoods.",
+        areaText: "Covering approximately a 10-mile radius from 2600 W Florida Ave, Denver, CO.",
+        mapNote: "Interactive map: marker at the service center and a 10-mile radius circle around it.",
         footerLine: "Residential & Commercial Cleaning • Denver, CO",
-        backTop: "Back to top",
+        backTop: "Back to top"
       },
       es: {
         tag: "Servicios de Limpieza Residencial y Comercial • Denver, CO",
         call: "Llamar",
         text: "Texto para Estimado Gratis",
-        headline: "Limpieza ecológica con presentación profesional—y un ambiente más saludable.",
-        subheadline: "Ayudamos a hogares y negocios en Denver a mantenerse limpios, presentables y listos para huéspedes, inquilinos o clientes. Servicio bilingüe (Español e Inglés). Estimados gratis por llamada o texto.",
+        headline: "Servicios de limpieza en Denver con presentación profesional y un ambiente más saludable.",
+        subheadline: "Eco-Pure Solutions LLC ayuda a casas, apartamentos, oficinas y propiedades Airbnb en Denver a mantenerse limpias, presentables y listas para huéspedes, inquilinos o clientes. Servicio bilingüe en español e inglés. Estimados gratis por llamada o texto.",
         pill1: "Estimados gratis",
         pill2: "Bilingüe (ES/EN)",
         pill3: "Residencial + Comercial",
         pill4: "Sirviendo Denver",
 
-        offersTitle: "Promociones (Semana 1)",
+        jump1: "Servicios",
+        jump2: "Área de servicio",
+        jump3: "Contacto",
+        jump4: "Estimado gratis",
+
+        offersTitle: "Promociones de la Semana 1",
         offer1a: "20% de descuento",
         offer1b: "en su primera limpieza (clientes nuevos)",
         offer2a: "10% de descuento por referidos",
         offer2b: "por cada cliente referido (hasta 5 clientes)",
-        offersNote: "Pida por texto y confirmamos los detalles del descuento al agendar.",
+        offersNote: "Pídalo por texto y confirmamos los detalles del descuento al agendar.",
 
         quoteTitle: "Pida un Estimado Gratis",
-        quoteNote: "Llene esto y toque “Enviar”. Se abrirá un texto ya escrito para enviarnos (el sitio no guarda información).",
+        quoteNote: "Llene esto y toque “Enviar”. Abrirá un mensaje de texto listo para enviarnos. El sitio no guarda información.",
         fName: "Nombre",
         fPhone: "Su Teléfono",
         fType: "Tipo de espacio",
@@ -548,14 +780,14 @@ input:focus, select:focus, textarea:focus{
         emailLabel: "Correo",
         trustLine: "Enfocados en Denver, detallistas y respetuosos con su espacio. Llegamos listos, nos comunicamos claro y limpiamos a fondo.",
 
-        servicesTitle: "Servicios",
+        servicesTitle: "Servicios de Limpieza en Denver",
         srv1: "Limpieza Residencial",
         srv1d: "Casas, apartamentos, limpiezas recurrentes o una sola vez.",
         srv2: "Limpieza Comercial / Oficinas",
         srv2d: "Oficinas pequeñas y grandes, áreas comunes, baños y salas de descanso.",
         srv3: "Limpieza para Airbnb",
         srv3d: "Limpiezas listas para huéspedes para mantener buenas reseñas y su calendario al día.",
-        srv4: "Limpieza de Mudanza (Entrada y Salida)",
+        srv4: "Limpieza de Mudanza",
         srv4d: "Ideal para inquilinos, administradores de propiedad y dueños preparando una unidad.",
         srv5: "Limpieza Profunda y Desinfección",
         srv5d: "Enfocada en detalles para cocina, baños y áreas de alto contacto.",
@@ -566,12 +798,13 @@ input:focus, select:focus, textarea:focus{
         who1: "Dueños de casa e inquilinos",
         who2: "Administradores de propiedad y dueños",
         who3: "Anfitriones de Airbnb y rentas cortas",
-        who4: "Oficinas pequeñas y oficinas grandes",
+        who4: "Oficinas pequeñas y grandes",
 
         areaTitle: "Área de Servicio",
-        areaText: "Sirviendo Denver, CO. Pregunte por vecindarios cercanos.",
+        areaText: "Cubrimos aproximadamente un radio de 10 millas desde 2600 W Florida Ave, Denver, CO.",
+        mapNote: "Mapa interactivo: marcador en el centro de servicio y un círculo de radio de 10 millas alrededor.",
         footerLine: "Limpieza Residencial y Comercial • Denver, CO",
-        backTop: "Volver arriba",
+        backTop: "Volver arriba"
       }
     };
 
@@ -587,17 +820,42 @@ input:focus, select:focus, textarea:focus{
       const details = formData.get("details") || "";
 
       if (lang === "en") {
-        return `Hi! I'd like a free cleaning estimate in Denver.\nName: ${name}\nMy phone: ${phone}\nType of space: ${space}\nService needed: ${service}\nApprox size: ${size}\nDetails: ${details}`;
+        return `Hi! I'd like a free cleaning estimate in Denver.
+Name: ${name}
+My phone: ${phone}
+Type of space: ${space}
+Service needed: ${service}
+Approx size: ${size}
+Details: ${details}`;
       }
-      return `Hola! Quisiera un estimado gratis de limpieza en Denver.\nNombre: ${name}\nMi teléfono: ${phone}\nTipo de espacio: ${space}\nServicio: ${service}\nTamaño aprox: ${size}\nDetalles: ${details}`;
+      return `Hola! Quisiera un estimado gratis de limpieza en Denver.
+Nombre: ${name}
+Mi teléfono: ${phone}
+Tipo de espacio: ${space}
+Servicio: ${service}
+Tamaño aprox: ${size}
+Detalles: ${details}`;
     }
 
     function setQuickSMSLinks() {
-      const bodyEN = `Hi! I'd like a free cleaning estimate in Denver.\nName:\nMy phone:\nType of space (home/office/Airbnb):\nService needed:\nApprox size:\nDetails:`;
-      const bodyES = `Hola! Quisiera un estimado gratis de limpieza en Denver.\nNombre:\nMi teléfono:\nTipo de espacio (casa/oficina/Airbnb):\nServicio:\nTamaño aprox:\nDetalles:`;
-      const body = (lang === "en") ? bodyEN : bodyES;
+      const bodyEN = `Hi! I'd like a free cleaning estimate in Denver.
+Name:
+My phone:
+Type of space (home/office/Airbnb):
+Service needed:
+Approx size:
+Details:`;
+      const bodyES = `Hola! Quisiera un estimado gratis de limpieza en Denver.
+Nombre:
+Mi teléfono:
+Tipo de espacio (casa/oficina/Airbnb):
+Servicio:
+Tamaño aprox:
+Detalles:`;
 
+      const body = (lang === "en") ? bodyEN : bodyES;
       const sms = `sms:${PHONE_E164}?&body=${encodeURIComponent(body)}`;
+
       document.getElementById("textBtn").href = sms;
       document.getElementById("smsCard").href = sms;
       document.getElementById("callBtn").href = `tel:${PHONE_E164}`;
@@ -625,10 +883,33 @@ input:focus, select:focus, textarea:focus{
       e.preventDefault();
       const fd = new FormData(e.target);
       const msg = buildSMSBody(fd);
-
       const smsLink = `sms:${PHONE_E164}?&body=${encodeURIComponent(msg)}`;
       window.location.href = smsLink;
     });
+
+    // Interactive radius map
+    const map = L.map('serviceMap', {
+      scrollWheelZoom: false
+    }).setView([SERVICE_CENTER.lat, SERVICE_CENTER.lng], 11);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    const marker = L.marker([SERVICE_CENTER.lat, SERVICE_CENTER.lng]).addTo(map);
+    marker.bindPopup(`<strong>Eco-Pure Solutions LLC</strong><br>${SERVICE_CENTER.address}`);
+
+    const circle = L.circle([SERVICE_CENTER.lat, SERVICE_CENTER.lng], {
+      radius: SERVICE_CENTER.radiusMeters,
+      color: '#22c55e',
+      fillColor: '#22c55e',
+      fillOpacity: 0.16,
+      weight: 2
+    }).addTo(map);
+
+    const group = L.featureGroup([marker, circle]);
+    map.fitBounds(group.getBounds(), { padding: [20, 20] });
 
     applyLanguage();
   </script>
